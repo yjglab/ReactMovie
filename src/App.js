@@ -1,23 +1,31 @@
+import styles from "./App.module.css";
 import { useState, useEffect } from "react";
 
-const Hi = () => {
-  useEffect(() => {
-    console.log("hi rendered");
-    return () => {
-      console.log("bye");
-    };
-  }, []);
-  return <h1>hi</h1>;
-};
 const App = () => {
-  const [isShow, setIsShow] = useState(false);
+  const [toDo, setToDo] = useState("");
+  const [toDoList, setToDoList] = useState([]);
+  const onChange = (e) => {
+    setToDo(e.target.value);
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (!toDo) return;
+    setToDoList((p) => [...p, toDo]);
 
-  const onClickIsShow = () => setIsShow((p) => !p);
-
+    setToDo("");
+  };
+  useEffect(() => console.log(toDoList), [toDoList]);
   return (
     <div>
-      {isShow ? <Hi /> : null}
-      <button onClick={onClickIsShow}>{isShow ? "hide" : "show"}</button>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          value={toDo}
+          type="text"
+          placeholder="작성..."
+        />
+        <button className={styles.test}>추가</button>
+      </form>
     </div>
   );
 };
