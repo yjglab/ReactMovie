@@ -1,29 +1,23 @@
-import styles from "./App.module.css";
 import { useState, useEffect } from "react";
 
-const App = () => {
-  const [cnt, setCnt] = useState(0);
-  const [keyword, setKeyword] = useState("");
-  const onClick = () => setCnt((p) => p + 1);
-  const onChange = (e) => {
-    setKeyword(e.target.value);
-  };
-  console.log("rendered All time");
-  useEffect(() => console.log("rendered one time"), []);
+const Hi = () => {
   useEffect(() => {
-    if (keyword !== "" && keyword.length > 5) console.log("keyboard on");
-  }, [keyword]);
+    console.log("hi rendered");
+    return () => {
+      console.log("bye");
+    };
+  }, []);
+  return <h1>hi</h1>;
+};
+const App = () => {
+  const [isShow, setIsShow] = useState(false);
+
+  const onClickIsShow = () => setIsShow((p) => !p);
+
   return (
     <div>
-      <input
-        onChange={onChange}
-        value={keyword}
-        type="text"
-        placeholder="Search..."
-      />
-      <h1 className={styles.title}>home</h1>
-      <span>{cnt}</span>
-      <button onClick={onClick}>click</button>
+      {isShow ? <Hi /> : null}
+      <button onClick={onClickIsShow}>{isShow ? "hide" : "show"}</button>
     </div>
   );
 };
