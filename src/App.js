@@ -10,8 +10,7 @@ const App = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (!toDo) return;
-    setToDoList((p) => [...p, toDo]);
-
+    setToDoList((prevToDo) => [...prevToDo, toDo]);
     setToDo("");
   };
   useEffect(() => console.log(toDoList), [toDoList]);
@@ -26,6 +25,11 @@ const App = () => {
         />
         <button className={styles.test}>추가</button>
       </form>
+      <ul>
+        {toDoList.map((v, i) => (
+          <li key={i}>{v}</li>
+        ))}
+      </ul>
     </div>
   );
 };
