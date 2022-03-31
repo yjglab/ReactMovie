@@ -25,6 +25,7 @@ const Main = () => {
           {movies.map((movie) => (
             <Movie
               key={movie.id}
+              id={movie.id}
               poster={movie.medium_cover_image}
               title={movie.title}
               summary={movie.summary}

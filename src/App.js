@@ -6,7 +6,7 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path={"/movie"}>
+        <Route path={"/movie/:id"}>
           <Detail />
         </Route>
         <Route path="/">
@@ -16,5 +16,5 @@ const App = () => {
     </Router>
   );
 };
-
+// :id는 변수명.
 export default App;
