@@ -1,19 +1,15 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Main from "./routes/Main";
 import Detail from "./routes/Detail";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path={"/movie/:id"}>
-          <Detail />
-        </Route>
-        <Route path="/">
-          <Main />
-        </Route>
-      </Switch>
-    </Router>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Routes>
+        <Route path={"/movie/:id"} element={<Detail />} />
+        <Route path={"/"} element={<Main />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 // :id는 변수명.
