@@ -2,10 +2,10 @@
 
 - index : render App
 - App : react router
-  > Routes
+  ###### Routes
 - Main : main movies page.
 - Detail : show movie's detail info
-  > Components
+  ###### Components
 - Movie : show each movie's info
 
 ### practice
