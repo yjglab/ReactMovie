@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.9e7f202e.css","mappings":"AAAA,kBAEE,WAAY,CADZ,cAAe,CAEf,eAAgB,CAHlB,qCAMI,WADA,cACY","sources":["routes/Main.module.scss"],"sourcesContent":[".test {\r\n  font-size: 80px;\r\n  color: brown;\r\n  font-weight: 800;\r\n  .test2 {\r\n    font-size: 30px;\r\n    color: black;\r\n  }\r\n}\r\n"],"names":[],"sourceRoot":""}
