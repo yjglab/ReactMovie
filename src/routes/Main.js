@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../App.module.css";
+import styles from "./Main.module.scss";
 import Movie from "../components/Movie";
 
 const Main = () => {
@@ -17,9 +17,11 @@ const Main = () => {
     getMovies();
   }, []);
   return (
-    <div>
+    <div className="dd">
       {loading ? (
-        <header className={styles.test}>Loading</header>
+        <header className={styles.test}>
+          Loading<span className={styles.test2}>로딩중</span>
+        </header>
       ) : (
         <div>
           {movies.map((movie) => (
